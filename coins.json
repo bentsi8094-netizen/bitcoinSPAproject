@@ -1,0 +1,26 @@
+[
+  {
+    "id": "bitcoin",
+    "image": "bitcoinImage",
+    "name": "Bitcoin (BTC)",
+    "description": "Step into the future of money. Freedom, control, where you define your own path."
+  },
+  {
+    "id": "ethereum",
+    "image": "ethereumImage",
+    "name": "Ethereum (ETH)",
+    "description": "Build your future in a world of endless possibilities."
+  },
+  {
+    "id": "litecoin",
+    "image": "litecoinImage",
+    "name": "Litecoin (LTC)",
+    "description": "A future where possibilities move fast and choices feel free."
+  },
+  {
+    "id": "tether",
+    "image": "tetherImage",
+    "name": "Tether (USDT)",
+    "description": "Fast, smooth, effortless — the freedom to move without limits."
+  }
+]

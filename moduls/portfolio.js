@@ -1,39 +1,19 @@
-// moduls/portfolio.js
-import { fetchPrices } from "../app.js"; // הנתיב צריך להיות יחסי לתיקיית moduls
+import { fetchPrices } from "../app.js";
+import { renderBuyText } from "./buyText.js"
+
+
+async function loadCoinsData() {
+    const res = await fetch('./coins.json');
+    return await res.json();
+}
 
 async function portfolioHendler(mainContainer) {
 
     const products = document.createElement('div');
     products.id = 'products';
 
-    const coinsData = [
-        {
-            id: 'bitcoin',
-            image: 'bitcoinImage',
-            name: 'Bitcoin (BTC)',
-            description: 'Step into the future of money. Freedom, control, where you define your own path.'
-        },
-        {
-            id: 'ethereum',
-            image: 'ethereumImage',
-            name: 'Ethereum (ETH)',
-            description: 'Build your future in a world of endless possibilities.'
-        },
-        {
-            id: 'litecoin',
-            image: 'litecoinImage',
-            name: 'Litecoin (LTC)',
-            description: 'A future where possibilities move fast and choices feel free.'
-        },
-        {
-            id: 'tether',
-            image: 'tetherImage',
-            name: 'Tether (USDT)',
-            description: 'Fast, smooth, effortless — the freedom to move without limits.'
-        }
-    ];
+    const coinsData = await loadCoinsData();
 
-    // קבל מחירים מה־API
     const prices = await fetchPrices();
 
     coinsData.forEach(coin => {
@@ -59,7 +39,6 @@ async function portfolioHendler(mainContainer) {
             price.textContent = 'Price unavailable';
         }
 
-        // כאן נוכל להוסיף בעתיד את ה־Modal של קנייה
         card.addEventListener('click', () => {
             console.log('Card clicked:', coin.id);
         });
@@ -68,8 +47,7 @@ async function portfolioHendler(mainContainer) {
         products.append(card);
     });
 
-    mainContainer.append(products);
+    mainContainer.append(products, renderBuyText());
 }
 
-// ייצוא הפונקציה
 export { portfolioHendler };

@@ -1,4 +1,3 @@
-// script.js
 import { homeHendler } from "./moduls/home.js";
 import { portfolioHendler } from "./moduls/portfolio.js";
 import { actions, getState, subscribe } from "./state.js";
@@ -15,10 +14,8 @@ function renderUI(state) {
     }
 }
 
-// Subscribe ל-State
 subscribe(renderUI);
 
-// Navigation Buttons
 document.getElementById('logoLink').addEventListener('click', e => { e.preventDefault(); actions.navigate('home'); });
 
 Array.from(document.getElementsByClassName('navLink')).forEach(link => {
@@ -35,5 +32,5 @@ Array.from(document.getElementsByClassName('footer-link')).forEach(link => {
     });
 });
 
-// הפעלה ראשונית
+// הפעלה ראשונה
 renderUI(getState());

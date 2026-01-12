@@ -1,4 +1,3 @@
-// home.js
 import { loadCustomersData } from "../app.js";
 import { actions } from "../state.js";
 

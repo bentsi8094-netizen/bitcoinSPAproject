@@ -10,7 +10,7 @@ export async function loadCustomersData() {
     }
 }
 
-// טוען מחירים עדכניים מה־CoinGecko API
+// טוען מחירים עדכניים מה־CoinGecko 
 export async function fetchPrices() {
     const ids = "bitcoin,ethereum,litecoin,tether";
     const vs = "usd";

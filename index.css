@@ -32,9 +32,7 @@
   padding: 0;
   transition: all 0.3s ease;
   flex-shrink: 0;
-  /* ✅ מונע כיווץ */
   display: inline-block;
-  /* ✅ שומר על גודל קבוע */
   width: auto;
   height: 100%;
   max-height: 60px;
@@ -188,6 +186,34 @@
 .userButton:active {
   transform: scale(0.97);
 }
+.buy-text {
+  color: rgb(254, 233, 117);
+  font-family: "Cinzel Decorative", serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.6; /* מרווח בין שורות */
+  letter-spacing: 1px; /* מרווח בין אותיות */
+  display: block;
+  white-space: pre-wrap;
+  text-shadow:
+    -0.5px 0.5px 0 black,
+    0.5px -0.5px 0 black;
+}
+
+.buy-text span {
+  display: inline-block;
+  padding: 0 2px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: transparent;
+  text-shadow:
+    -0.5px 0.5px 0 black,
+    0.5px -0.5px 0 black;
+}
+
+
+
 
 #products {
   display: grid;

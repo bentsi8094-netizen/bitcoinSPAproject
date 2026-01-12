@@ -158,11 +158,11 @@
   max-width: none;
 }
 
-.usersGround::-webkit-scrollbar {
+#usersGround::-webkit-scrollbar {
   height: 6px;
 }
 
-.usersGround::-webkit-scrollbar-thumb {
+#usersGround::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
 }

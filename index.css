@@ -252,6 +252,56 @@
   align-items: center;
 }
 
+#modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#modalBox {
+  background: white;
+  border: 2px solid rgb(254, 233, 117);
+  padding: 30px;
+  width: 420px;
+  height: 420px;
+  text-align: center;
+  position: relative;
+  font-family: "Cinzel Decorative", serif;
+}
+
+#modalClose {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+#investmentInput {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+}
+
+#calculateBtn {
+  background: rgb(254, 233, 117);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#cryptoResult {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
 #top-nav {
   display: flex;
   align-items: center;

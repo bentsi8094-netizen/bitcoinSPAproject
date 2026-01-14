@@ -1,19 +1,26 @@
+// state.js
 
 const subscribers = [];
 
+// ================== STATE ==================
 const state = {
     user: null,
     isAuthenticated: false,
     ui: 'home',
+
+    prices: null,
+
     products: [
         { id: 'bitcoin', symbol: 'BTC', price: null },
         { id: 'ethereum', symbol: 'ETH', price: null },
         { id: 'litecoin', symbol: 'LTC', price: null },
         { id: 'tether', symbol: 'USDT', price: 1 }
     ],
+
     cart: []
 };
 
+// ================== PERSISTENCE ==================
 const savedUser = localStorage.getItem('user');
 if (savedUser) {
     state.user = JSON.parse(savedUser);
@@ -21,7 +28,7 @@ if (savedUser) {
     state.ui = 'portfolio';
 }
 
-// --------------------------------------
+// ================== CORE ==================
 function notify() {
     subscribers.forEach(fn => fn(getState()));
 }
@@ -34,7 +41,24 @@ export function getState() {
     return structuredClone(state);
 }
 
-// --------------------------------------
+// ================== PRICES ==================
+export function setPrices(prices) {
+    state.prices = prices;
+
+    state.products.forEach(product => {
+        if (prices?.[product.id]?.usd) {
+            product.price = prices[product.id].usd;
+        }
+    });
+
+    notify();
+}
+
+export function getPrices() {
+    return state.prices;
+}
+
+// ================== ACTIONS ==================
 export const actions = {
     selectUser(customerData) {
         state.user = customerData;
@@ -62,18 +86,12 @@ export const actions = {
         notify();
     },
 
-    updatePrices(priceMap) {
-        state.products.forEach(p => {
-            if (priceMap[p.symbol]) p.price = priceMap[p.symbol];
-        });
-        notify();
-    },
-
     addToCart(assetId, amount) {
         const product = state.products.find(p => p.id === assetId);
         if (!product || !product.price) return;
 
         const item = state.cart.find(i => i.assetId === assetId);
+
         if (item) {
             item.amount += amount;
         } else {
@@ -83,6 +101,7 @@ export const actions = {
                 priceAtPurchase: product.price
             });
         }
+
         notify();
     },
 

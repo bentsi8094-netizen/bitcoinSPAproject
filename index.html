@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,15 +41,11 @@
 
     <main>
         <div id="imgPlace">
-            <img id="groundImg"
-                src="images/cryptocurrency.jpg"
-                alt="cripto-coins">
+            <img id="groundImg" src="images/cryptocurrency.jpg" alt="cripto-coins">
             <div id="main-container"></div>
         </div>
         <section id="contact">
-            <img id="buttomImg"
-                src="images/Stylish-Crypto-Investor.webp"
-                alt="invest people">
+            <img id="buttomImg" src="images/Stylish-Crypto-Investor.webp" alt="invest people">
             <div id="form-container">
                 <h2 id="form-title">Ask us to contact you</h2>
                 <div id="form-content">
@@ -92,7 +89,25 @@
             <h3 id="rights">All rights reserved. Wise Bitcoin 2025 ©</h3>
         </div>
     </footer>
+
+    <!-- modal -->
+
+    <div id="modalOverlay">
+        <div id="modalBox">
+            <button id="modalClose">×</button>
+
+            <h2>Investment Calculator</h2>
+
+            <input id="investmentInput" type="number" placeholder="Enter amount in USD" />
+
+            <button id="calculateBtn">Calculate</button>
+
+            <p id="cryptoResult"></p>
+        </div>
+    </div>
+
     <script type="module" src="./index.js"></script>
+
 </body>
 
 </html>
